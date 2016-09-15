@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Lula PPT</title>
+
+    <style type="text/css">
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: Calibri, Arial, sans-serif;
+                background: #424647;
+                display: flex;
+                flex-flow: column;
+                min-height: 100vh;
+                width: 100vw;
+            }
+
+            #area {
+                background: #424647;
+                width: 100vw;
+                flex: 1 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+            }
+            h1 {
+                margin-bottom: -2vh;
+                z-index: 10;
+                color: #fff;
+            }
+            #area .tela {
+                width: 805px;
+                height: 701px;
+                background: url(tela.png);
+            }
+            #area .tela .canvas {
+                width: 640px;
+                height: 480px;
+                background: url(slide.png);
+                margin-top: 71px;
+                margin-left: 82px;
+            }
+
+            #menu {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.3);
+                position: fixed;
+                flex: 0 0 auto;
+                padding: 20px;
+                width: 100vw;
+                height: 140px;
+                bottom: 0;
+                text-align: center;
+                transform: translateY(120px);
+                transition: transform 300ms ease-out;
+            }
+            #menu:hover {
+                transform: translateY(0);
+            }
+            #menu:hover #compartilhar {
+                opacity: 0;
+            }
+            #compartilhar {
+                position: absolute;
+                left: 50%;
+                top: -60px;
+                width: 140px;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.3);
+                margin-left: -70px;
+                border-radius: 4px;
+                opacity: 0.7;
+                transition: opacity 100ms ease-out;
+            }
+            #compartilhar:after {
+                content: "";
+                background: rgba(0, 0, 0, 0);
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                width: 150px;
+                height: 20px;
+            }
+            #menu > div.center {
+                display: inline-block;
+                margin: 0 auto;
+            }
+            #menu .circulo {
+                color: #fff;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                display: flex;
+                width:  90px;
+                height: 90px;
+                background: #888A98;
+                border: 2px solid #D8DEDE;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-right: 20px;
+                border-radius: 100%;
+                position: relative;
+                float: left;
+                transition: transform 100ms ease-out;
+            }
+            #menu a.circulo:hover {
+                transform: scale(1.1);
+            }
+            #menu .circulo.azul {
+                background: #678FF2;
+                margin-right: 60px;
+                margin-left: -30px;
+            }
+            #menu .circulo.seta {
+                margin-right: 50px;
+            }
+            #menu .circulo.seta:after {
+                content: "";
+                display: block;
+                position: absolute;
+                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDdweCIgaGVpZ2h0PSIxOXB4IiB2aWV3Qm94PSIwIDAgNDcgMTkiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+c2V0YTwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9Ikdyb3VwLTQiIGZpbGw9IiNEMUQ1REYiPiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJDb21iaW5lZC1TaGFwZSIgcG9pbnRzPSIyOS4zNTg4NTY2IDYuNzkyNTgyMzkgMjkuNTQ2MDkzNiAwLjEzMzg5OTIyMSA0Ni45MzIwODYyIDkuMzkyODAwOTggMjkuMDE3MDU2IDE4Ljk0Nzk5MjkgMjkuMjE4MjYwNSAxMS43OTI1ODI0IDAuNjc3Mzg1ODk0IDExLjc5MjU4MjQgMC42NzczODU4OSA2Ljc5MjU4MjQyIj48L3BvbHlnb24+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+                width: 47px;
+                height: 19px;
+                top: 40%;
+                right: 0;
+                margin-right: -47px;
+            }
+            #menu .circulo:last-child {
+                margin-right: 0;
+            }
+            .input-wrapper {
+                background: #888A98;
+                color: #fff;
+                padding: 0;
+                position: absolute;
+                border: 2px solid transparent;
+                outline: 0;
+                width: 105px;
+                height: 105px;
+                font-size: 17px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+            }
+            .input-wrapper textarea {
+                border: 0;
+                background: transparent;
+                padding: 0;
+                margin: 0;
+                font: inherit;
+                color: inherit;
+                outline: none;
+                resize: none;
+                width: 100%;
+                height: 22px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .input-wrapper.azul {
+                background: #678FF2;
+            }
+            .input-wrapper.lula {
+                width: 150px;
+                height: 150px;
+            }
+            .input-wrapper.lula textarea {
+                font-size: 28px;
+                height: 30px;
+            }
+    </style>
+
+    <script
+        src="https://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+        crossorigin="anonymous"></script>
+    <script src="autosize.min.js" crossorigin="anonymous"></script>
+    <script src="ppt_generator.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            window.PPT.init();
+
+            $('#download').on('click', function (e) {
+                var $target = $(e.target);
+
+                if (!$target.is('a')) $target = $target.parents('a').first();
+
+                $(e.target).attr('href', window.PPT.generateImage());
+            });
+        })
+    </script>
+
+    <div id="area">
+            <h1>Lula PPT Generator</h1>
+            <div class="tela">
+                <div class="canvas">
+                <canvas id="ppt-generator" width="640" height="480"></canvas>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div id="compartilhar">COMPARTILHAR</div>
+            <div class="center">
+                <a href="#" class="circulo azul" id="download" download="lula-ppt.png">Baixar</a>
+                <span class="circulo seta">Compar-tilhar<br /> link</span>
+                <a href="#" class="circulo">Twitter</a>
+                <a href="#" class="circulo">Facebook</a>
+            </div>
+        </div>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84203935-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
